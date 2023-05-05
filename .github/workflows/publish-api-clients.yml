@@ -40,4 +40,4 @@ jobs:
           command-args: "--api-package com.joranbergfeld.airport-system.plane.client.api --model-package com.joranbergfeld.airport-system.plane.client.model --invoker-package com.joranbergfeld.airport-system.plane.client.invoker --group-id com.joranbergfeld.airport-system --artifact-id plane-api.client --artifact-version ${{ github.sha }} --library resttemplate -o plane-client"
 
       - name: Deploy client to nexus
-        run: sed -i "/<spring-web-version>/s/>.*</>6.0.7</" pom.xml && mvn deploy -DaltDeploymentRepository=nexus::default::${{ secrets.NEXUS_URL }}
+        run: cd plane-client && sed -i "/<spring-web-version>/s/>.*</>6.0.7</" pom.xml && mvn deploy -DaltDeploymentRepository=nexus::default::${{ secrets.NEXUS_URL }}
