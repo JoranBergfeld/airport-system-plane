@@ -1,7 +1,6 @@
 spring:
   application:
     name: plane-app
-
 management:
   endpoint:
     health:
